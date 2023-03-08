@@ -16,6 +16,8 @@ body{
     height: 33%;
     padding: 5px;
     border-radius: 30px;
+    border-width: 2px; 
+    border-style: solid;
 }
 
 .header_text_background{
@@ -26,6 +28,8 @@ body{
     height: 33%;
     padding: 5px;
     border-radius: 30px;
+    border-width: 2px; 
+    border-style: solid;
 }
 
 .header_left_side{
@@ -70,4 +74,74 @@ a:link {
     color: #EEE9DA;
     background-color: transparent;
     text-decoration: underline;
+  }
+
+  .parallax_main_page{
+    /* The image used */
+    background-image: url("pics/major.jpg");
+  
+    /* Set a specific height */
+    min-height: 1000px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    color: white;
+    align-items: flex-end;
+    
+
+  }
+
+  .body_main_page{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    width: 100%;
+    height: 100vh;
+    background-color: #BDCDD6;
+    flex-wrap: wrap;
+  }
+
+  .main_page_records_holder{
+   
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #BDCDD6;
+  }
+
+  .record_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16%;
+    height: 42%;
+    background-color: #EEE9DA;
+    border-radius: 30px;
+    border-width: 2px; 
+    border-style: solid;
+    padding : 5px;
+  }
+
+  .record_row{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: #BDCDD6;
+    border-width: 3px;
+  }
+
+  .record_box_text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
   }
