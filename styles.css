@@ -7,7 +7,7 @@ body{
 
 .header{
     display: flex;
-    background-color: #BDCDD6;
+    background-color: #2C3639;
     height: 8vh;   
     justify-content: space-between;
     
@@ -20,7 +20,7 @@ body{
     width: 300px;
     height: 33%;
     padding: 5px;
-    border-radius: 30px;
+    border-radius: 5px;
     border-width: 2px; 
     border-style: solid;
 }
@@ -32,7 +32,7 @@ body{
     width: auto;
     height: 33%;
     padding: 5px;
-    border-radius: 30px;
+    border-radius: 5px;
     border-width: 2px; 
     border-style: solid;
 }
@@ -41,7 +41,7 @@ body{
     display: flex;
     align-items: center;
     height: 100%;
-    width: 55%;
+    width: 60%;
     justify-content: space-between;
     margin-left: 1%;
 }
@@ -70,7 +70,7 @@ body{
   min-width: 160px;
   right: 0;
   color: black;
-  border-radius: 10px;
+  border-radius: 5px;
   border-width: 2px;
   border-style: solid;
 
@@ -146,7 +146,7 @@ a:link {
     padding-top: 3%;
     width: 100%;
     height: 100vh;
-    background-color: #BDCDD6;
+    background-color: #2C3639;
     flex-wrap: wrap;
   }
 
@@ -157,7 +157,7 @@ a:link {
     flex-wrap: wrap;
     width: 100%;
     height: 1400px;
-    background-color: #BDCDD6;
+    background-color: #2C3639;
   }
 
   .record_box{
@@ -167,7 +167,7 @@ a:link {
     width: 20%;
     height:30%;
     background-color: #EEE9DA;
-    border-radius: 30px;
+    border-radius: 20px;
     border-width: 2px; 
     border-style: solid;
     padding : 5px;
@@ -227,3 +227,24 @@ a:link {
     
     
     }
+
+
+    /* About us page styles */
+
+    .about_us_body{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        background-color: #2C3639;
+      
+    }
+
+
+  .map{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 33%;
+    flex-direction: column;
+    align-items: center;
+  }
