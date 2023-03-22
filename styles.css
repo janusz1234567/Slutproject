@@ -30,7 +30,7 @@ body{
     align-items: center;
     background-color: #EEE9DA;
     width: auto;
-    height: 33%;
+    height: 15px;
     padding: 5px;
     border-radius: 5px;
     border-width: 2px; 
@@ -140,7 +140,7 @@ a:link {
 
 
   /* main page styles */
-  .body_main_page{
+  .main_page_body{
     display: flex;
     justify-content: center;
     padding-top: 3%;
@@ -173,14 +173,7 @@ a:link {
     padding : 5px;
   }
 
-  .record_row{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 33%;
-    background-color: #BDCDD6;
-    border-width: 3px;
-  }
+
 
   .record_box_text{
     display: flex;
@@ -229,6 +222,17 @@ a:link {
     }
 
 
+    /* footer styles */
+    .footer{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 10vh;
+        background-color: #2C3639;
+        align-items: center;
+    }
+
+
     /* About us page styles */
 
     .about_us_body{
@@ -236,6 +240,7 @@ a:link {
         width: 100%;
         height: 100vh;
         background-color: #2C3639;
+        justify-content: space-between;
       
     }
 
@@ -247,4 +252,14 @@ a:link {
     width: 33%;
     flex-direction: column;
     align-items: center;
+  }
+
+  .info{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 66%;
+    flex-direction: column;
+    align-items: center;
+  
   }
