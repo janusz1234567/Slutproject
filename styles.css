@@ -263,3 +263,32 @@ a:link {
     align-items: center;
   
   }
+
+
+/* player page styles */
+
+.player_body{
+  display: flex;
+  background-color: #2C3639;
+  height: 93vh;
+  padding-top: 10%;
+  justify-content: center;
+}
+
+.player_info_parent{
+  display: flex;
+  width: 50%;
+  height: 15%;
+  align-items: center;
+  background-color: green;
+  padding-left: 1%;
+}
+
+.player_pic{
+  display: flex;
+  width: 5%;
+  height: 100%;
+  background-color: red;
+  flex-direction: column;
+}
+
