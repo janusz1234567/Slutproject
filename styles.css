@@ -11,19 +11,25 @@ body{
     background-color: #2C3639;
     height: 8vh;   
     justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
     
 }
 
 .search_background{
     display: flex;
-    align-items: center;
-    background-color: #EEE9DA;
-    width: 300px;
     height: 33%;
-    padding: 5px;
-    border-radius: 5px;
-    border-width: 2px; 
-    border-style: solid;
+   
+}
+
+.search_background input[type=text] {
+  float: right;
+
+  border: none;
+  width: auto;
+  height: 100%;
+  font-size: 17px;
 }
 
 .header_text_background{
@@ -38,23 +44,7 @@ body{
     border-style: solid;
 }
 
-.header_left_side{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 60%;
-    justify-content: space-between;
-    margin-left: 1%;
-}
-.header_right_side{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 25%;
-    flex-direction: row-reverse;
-    margin-right: 1%;
-    
-}
+
 
 /*dropdown menu styles*/
 
@@ -144,15 +134,14 @@ a:link {
   .main_page_body{
     display: flex;
     justify-content: center;
-    padding-top: 3%;
+    padding-top: 2%;
     width: 100%;
-    height: 100vh;
+    height: 85vh;
     background-color: #2C3639;
     flex-wrap: wrap;
   }
 
   .main_page_records_holder{
-   
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -171,10 +160,8 @@ a:link {
     border-radius: 20px;
     border-width: 2px; 
     border-style: solid;
-    padding : 5px;
+    padding : 3px;
   }
-
-
 
   .record_box_text{
     display: flex;
@@ -184,51 +171,12 @@ a:link {
 
   }
 
-
- @media screen and (max-width: 860px) {
-    
-    .main_page_records_holder{
-        flex-direction: row;
-      
-        justify-content: space-around;
-        padding-top: 5%;
-        height: 3000px;
-    }
-
-
-    .record_box{
-        display: flex;
-        width: 50%;
-        padding-left: 3%;
-        height: 360px;
-        justify-content: center;
-        
-    }
-
-    .record_box_text{
-      display: flex;  
-      font-size: 10px;
-        justify-content: center;
-    }
-  
- }
-
-  @media screen and (max-width: 500px) {
-      
-    p{
-        font-size: 10px;
-    }
-    
-    
-    }
-
-
     /* footer styles */
     .footer{
         display: flex;
         justify-content: space-around;
         width: 100%;
-        height: 10vh;
+        height: 5vh;
         background-color: #2C3639;
         align-items: center;
     }
@@ -283,6 +231,13 @@ a:link {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.videos{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
 }
 
 
