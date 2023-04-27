@@ -77,6 +77,115 @@
   </div>
     </div>
 
+        <div id="enterDetails">
+          <h1>Enter Details</h1>
+          <h4>Title</h4>
+          <input id="enterID" type="text">
+          <h4>Url</h4>
+          <div class="url">
+            <ul id="video-url">
+
+            </ul>
+          </div>
+          <button id="insert">INSERT</button>
+          <button id="update">UPDATE</button>
+          <button id="remove">REMOVE</button>
+
+
+        </div>
+
+
+        <div id="findDetails">
+          <h1>Find By ID</h1>
+          <h4>FIND</h4>
+          <input id="findID" type="text">
+          <button id="findBtn">FIND</button>
+          <h3 id="find-url"></h3>
+          
+          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="index.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAAC_Elz1slOzB-AGtqnKLdWIuNeJ_efv4",
+        authDomain: "slutproject-bc218.firebaseapp.com",
+        databaseURL: "https://slutproject-bc218-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "slutproject-bc218",
+        storageBucket: "slutproject-bc218.appspot.com",
+        messagingSenderId: "318530280842",
+        appId: "1:318530280842:web:9cbe51efd55cfa6da03c73"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {getDatabase, set, get, update, remove, ref, child}
+      from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
+
+      const db = getDatabase();
+
+      var enterID = document.querySelector("#enterID");
+      var videourl = document.querySelector("#video-urL");
+      var findID = document.querySelector("#findID");
+      var findurl = document.querySelector("#find-url");
+
+      var insertBtn = document.querySelector("#insert");
+      var update = document.querySelector("#update");
+      var remove = document.querySelector("#remove");
+      var findBtn = document.querySelector("#findBtn");
+
+      function InsertData(){
+          set(ref(db,"videos/" + enterID.value), {
+            url: videourl.value,
+            id: enterID.value
+          })
+          .then(() => {
+            alert("Data Inserted")
+          })
+
+          .catch((error) => {
+            alert(error)
+          }
+        );
+      }
+
+      function FindData(){
+          
+
+      }
+      function UpdateData(){
+          
+
+      }
+      function RemoveData(){
+          
+
+      }
+
+      insertBtn.addEventListener("click", InsertData);
+      update.addEventListener("click", UpdateData);
+      remove.addEventListener("click", RemoveData);
+      findBtn.addEventListener("click", FindData);
+
+    </script>
 </body>
+
 </html>

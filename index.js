@@ -23,4 +23,8 @@ document.getElementById('addVideosInput').onchange = e => {
        <span><i class="fa fa-trash"></i></span>
    </li>`
   $('.video-list ul').append(li);
+  $('.url ul').append(url);
 };
+
+
+
