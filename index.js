@@ -22,16 +22,21 @@ const app = initializeApp(firebaseConfig);
 
 import {getDatabase, set, get, update, remove, ref, child}
 from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
-  
+
+
+// 'file' comes from the Blob or File API
+uploadBytes(storageRef, file).then((snapshot) => {
+  console.log('Uploaded a blob or file!');
+});  
 
   const db = getDatabase();
 
-  var enterID = document.querySelector("#enterID");
-  var enterName = document.querySelector("#enterName");
-  var enterAge = document.querySelector("#enterAge");
-  var findID = document.querySelector("#findID");
-  var findName = document.querySelector("#findName");
-  var findAge = document.querySelector("#findAge");
+  var enterTitle = document.querySelector("#enterTitle");
+  var enterUrl = document.querySelector("#enterUrl");
+  var enterAuthor = document.querySelector("#enterAuthor");
+  var findTitle = document.querySelector("#findTitle");
+  var findUrl = document.querySelector("#findUrl");
+  var findAuthor = document.querySelector("#findAuthor");
 
 
   var insertBtn = document.querySelector("#insert");
@@ -41,11 +46,13 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
   console.log(insertBtn)
   console.log(findBtn)
   function InsertData() {
-      set(ref(db, "Videos/"+ enterID.value),{
+      set(ref(db, "Videos/"+ enterTitle.value),{
           
-          Title: enterID.value,
-          Url: enterName,
-          Aurhor: enterAge.value
+          Title: enterTitle.value,
+          Url: enterUrl.textContent,
+          Author: enterAuthor.value,
+         
+
          
       })
       .then(()=>{
@@ -59,11 +66,13 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
   function FindData() {
       const dbref = ref(db);
 
-      get(child(dbref, "Videos/" + findID.value))
+      get(child(dbref, "Videos/" + findTitle.value))
       .then((snapshot)=>{
           if(snapshot.exists()){
-              findName.innerHTML = "Name: " + snapshot.val().Name;
-              findAge.innerHTML = "Age: " + snapshot.val().Age;
+           console.log(snapshot.val().Url)  
+            var li = ` <li> <video controls="controls" src=" ${snapshot.val().Url} " type="video/mp4" width="400px" height="200px"></video>`
+            $(findUrl).append(li);
+            findAuthor.innerHTML = "Author: " + snapshot.val().Author;
           } else {
               alert("No data found");
           }
@@ -75,9 +84,9 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
   }
 
   function UpdateData(){
-      update(ref(db, "Videos/"+ enterID.value),{
-          Name: enterName,
-          Age: enterAge.value
+      update(ref(db, "Videos/"+ enterTitle.value),{
+          Url: enterUrl.textContent,
+          Author: enterAuthor.value
       })
       .then(()=>{
           alert("Data updated successfully");
@@ -88,7 +97,7 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
   }
 
   function RemoveData(){
-      remove(ref(db, "Videos/"+ enterID.value))
+      remove(ref(db, "Videos/"+ enterTitle.value))
       .then(()=>{
           alert("Data deleted successfully");
       })
@@ -115,6 +124,8 @@ document.getElementById('addPhotosInput').onchange = e => {
    <span><i class="fa fa-trash"></i></span>
    </li>`
   $('.photos-list ul').append(li);
+    $("#enterUrl").append(url);
+    console.log(enterUrl.textContent)
 };
 
 $('#addVideosBtn').click(function() {
@@ -128,8 +139,8 @@ document.getElementById('addVideosInput').onchange = e => {
        <span><i class="fa fa-trash"></i></span>
    </li>`
   $('.video-list ul').append(li);
-  $("#enterName").append(url);
-  console.log(enterName)
+  $("#enterUrl").append(url);
+  console.log(enterUrl.textContent)
 };
 
 
