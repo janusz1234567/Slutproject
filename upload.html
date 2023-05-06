@@ -12,10 +12,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+    
   
     
 
 </head>
+
 <body>
   <div class="header">
                         
@@ -29,86 +34,41 @@
         <input type="text" placeholder="Search..">
     </div>
 
-    <div class="dropdown" style="float:right;">
-       
-        <button >
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        
-        <div class="dropdown-content">
-          <a href="#">Merch</a>
-          <a href="com.html">Community</a>
-          <a href="about_us.html">About Us</a>
-        </div>
-      </div>   
-    </div>
-  </div>
-    <div class="upload_body">
-
-   
-       <!-- Photos -->
-  <div class="row">
-    <div class="col-md-4">
-      <input type="file" class="d-none" id="addPhotosInput" accept="image/png, image/gif, image/jpeg">
-      <button class="btn btn-secondary" id="addPhotosBtn">Add Photos <i class="fa fa-camera"></i> </button>
-    </div>
-    <div class="col-md-12">
-      <div class="photos-list">
-        <ul>
-
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-<!-- Video -->
-
-  <div class="row">
-    <div class="col-md-4">
-      <input type="file" class="d-none" id="addVideosInput" accept=" video/*">
-      <button class="btn btn-secondary" id="addVideosBtn">Add Videos <i class="fa fa-camera"></i> </button>
-    </div>
-    <div class="col-md-12">
-      <div class="video-list">
-        <ul>
-
-        </ul>
-      </div>
-    </div>
+    <div class="header_text_background">
+      <a href="index.html">
+          <p>Upload Your Clips!</p>
+      </a>
   </div>
     </div>
-    <div id="enterDetails">
-      <h1>Enter details</h1>
-
-      <h4>Title</h4> 
-      <input id="enterTitle" type="text"> 
-
-      <h4>Url</h4> 
-      <h1 id="enterUrl">
-      
-      </h1> 
-
-      <h4>Author</h4> 
-      <input id="enterAuthor" type="text"> <br><br>
-
-      <button id="insert">INSERT</button>
-      <button id="update">UPDATE</button>
-      <button id="remove">REMOVE</button>
-      <button onClick="window.location.reload();">Clear</button>
-      <br><br>
   </div>
 
-  <div id="findDetails">
-      <h1>Find by ID</h1>
-      <h4>ID</h4>
-      <input id="findTitle" type="text"> <br><br>
-      <button id="find">FIND</button>
-      <div id="findUrl"></div>
-      <h3 id="findAuthor" type="text"></h3> <br><br>
-  </div>
-
-    <script type="module" src="index.js"></script>
+  <div class="upload_body">
     
+      <input 
+    type="file" 
+    id="fileInp" 
+    class="inputFile" 
+    accept="image/png, image/gif, image/jpeg, video/*">
+    <label for="fileInp">+</label>
+    <span class="fileText"></span>
+    <button id="uploadBtn">Upload IMAGE</button>
+    <div class="bar">
+      <div class="progress"></div>
+    </div>
+    <div class="uploadPercentage">0%</div>
+    <div class="imageUploaded">
+      <img  alt="" class="img">
+    </div>
+    <h4>Title</h4> 
+    <input id="enterTitle" type="text"> 
+    <h4>Author</h4> 
+    <input id="enterAuthor" type="text"> <br><br>
+    
+  </div>
+ 
+  
+
+  <script type="module" src="index.js"></script>
 </body>
 
 </html>

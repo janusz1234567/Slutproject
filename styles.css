@@ -35,6 +35,9 @@ body{
 .header_text_background{
     display: flex;
     align-items: center;
+    color: #ff105f;
+    font-size: auto;
+    font-weight: bold;
     background-color: #EEE9DA;
     width: auto;
     height: 15px;
@@ -290,3 +293,65 @@ a:link {
 .videos-list ul li span svg {
   color: #fff;
 }
+
+
+
+.inputFile{
+  display: none;
+}
+
+label{
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 100px;
+  background-color:linear-gradient(to right, #ff105f, #ffad06) ;
+  cursor: pointer;
+}
+
+button{
+  padding: 20px 25px;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+  cursor:pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bar{
+  height: 50px;
+  width: 500px;
+  background: #80808063;
+  margin-bottom: 10px;
+}
+
+.progress{
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  height: 100%;
+  width: 0%;
+}
+
+.uploadPercentage{
+  font-size: 25px;
+
+}
+
+
+.img{
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+  display: none;
+  border: 5px solid #ff105f;
+}
+
+.imageUploaded{
+  margin-top: 10px;
+}
+

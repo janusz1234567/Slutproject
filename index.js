@@ -1,8 +1,14 @@
 console.log("Hello World");
 
 
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+import {getDatabase, set, get, update, remove, ref, child,}
+
+from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,14 +26,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import {getDatabase, set, get, update, remove, ref, child}
-from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
+firebase.initializeApp(firebaseConfig);
 
-
-// 'file' comes from the Blob or File API
-uploadBytes(storageRef, file).then((snapshot) => {
-  console.log('Uploaded a blob or file!');
-});  
 
   const db = getDatabase();
 
@@ -38,7 +38,8 @@ uploadBytes(storageRef, file).then((snapshot) => {
   var findUrl = document.querySelector("#findUrl");
   var findAuthor = document.querySelector("#findAuthor");
 
-
+  var getFileBtn = document.querySelector("#fileInp");
+  var uploadBtn = document.querySelector("#uploadBtn");
   var insertBtn = document.querySelector("#insert");
   var updateBtn = document.querySelector("#update");
   var removeBtn = document.querySelector("#remove");
@@ -106,42 +107,76 @@ uploadBytes(storageRef, file).then((snapshot) => {
       });
   }
 
+  var fileText = document.querySelector(".fileText");
+  var uploadPercentage = document.querySelector(".uploadPercentage");
+  var progress = document.querySelector(".progress");
+  var precentVal;
+  var fileItem;
+  var fileName;
+  var img = document.querySelector(".img");
+ 
+  
+  
+  function getFile(e){
+    fileItem = e.target.files[0];
+    fileName = fileItem.name;
+    fileText.innerHTML = fileName; 
+  
+  
+  }
+  
+    function uploadFile(){
+        let storageRef = firebase.storage().ref("Videos/" + fileName);
+        let uploadTask = storageRef.put(fileItem);
+  
+        uploadTask.on("state_changed", (snapshot)=>{
+            console.log(snapshot)
+            precentVal = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log(precentVal);
+            uploadPercentage.innerHTML= precentVal + "%";
+            progress.style.width = precentVal + "%";
+    }, (error)=>{
+        console.log(error.message);
+    }, ()=>{
+        uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
+            console.log(url);
+
+          if(url != ""){
+              img.setAttribute("src", url);
+              img.style.display = "block";
+          }
+            enterUrl.innerHTML = url;
+            set(ref(db, "Videos/"+ enterTitle.value),{
+          
+                Title: enterTitle.value,
+                Url: img.src,
+                Author: enterAuthor.value,
+               
+        
+               
+            })
+            .then(()=>{
+                alert("Data added successfully");
+            })
+            .catch((error)=>{
+                alert(error);
+            });
+
+  })
+    })
+   
+  }
+
+
+
+  
   insertBtn.addEventListener('click', InsertData);
   updateBtn.addEventListener('click', UpdateData);
   removeBtn.addEventListener('click', RemoveData);
   findBtn.addEventListener('click', FindData);
+  uploadBtn.addEventListener('click', uploadFile);
+ getFileBtn.addEventListener('change', getFile);
 
-
-
-$('#addPhotosBtn').click(function() {
-  $(this).parents().find('#addPhotosInput').click();
-});
-
-document.getElementById('addPhotosInput').onchange = e => {
-  const file = e.target.files[0];
-  const url = URL.createObjectURL(file);
-  const li = ` <li> <img src=" ${url} ">
-   <span><i class="fa fa-trash"></i></span>
-   </li>`
-  $('.photos-list ul').append(li);
-    $("#enterUrl").append(url);
-    console.log(enterUrl.textContent)
-};
-
-$('#addVideosBtn').click(function() {
-  $(this).parents().find('#addVideosInput').click();
-});
-
-document.getElementById('addVideosInput').onchange = e => {
-  const file = e.target.files[0];
-  const url = URL.createObjectURL(file);
-  const li = ` <li> <video controls="controls" src=" ${url} " type="video/mp4" width="400px" height="200px"></video>
-       <span><i class="fa fa-trash"></i></span>
-   </li>`
-  $('.video-list ul').append(li);
-  $("#enterUrl").append(url);
-  console.log(enterUrl.textContent)
-};
 
 
 
