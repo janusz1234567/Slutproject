@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/cb6bb63253.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  
     
     
     <title>Main Page</title>
@@ -20,13 +26,12 @@
                 <p>The CS:GO Enjoyers</p>
             </a>
         </div>
-            
-        <div class="search_background">
-            <input type="text" placeholder="Search..">
+        <div class="header_text_background">  
+        <p>Find best clips here!</p>
         </div>
-    
+            
         <div class="header_text_background">
-          <a href="index.html">
+          <a href="upload.html">
               <p>Upload Your Clips!</p>
           </a>
       </div>
@@ -48,16 +53,25 @@
             </div>
        </div>
 
-       <div class="main_page_body">
-           
-                    
-                   
-                
-     
-        
+   <div class="mainBody">
     
-        </div>
+    <div class="header_text_background">
+        <p>Find your clip, enter the title</p>
+    </div>
+    <br>
+    <input type="text" id="findTitle">
+
+    
+    <button id="find">Search!</button>
+    <h3 id="findUrl"></h3>
+    <h3 id="findAuthor"></h3>                
+  
+  
+    </div>
            
+    
+    
+   
 
        
 
@@ -83,7 +97,7 @@
        </div>
       
 
- 
+       <script type="module"src="index.js"></script>
 
 </body>
 </html>

@@ -30,9 +30,6 @@
         </a>
     </div>
         
-    <div class="search_background">
-        <input type="text" placeholder="Search..">
-    </div>
 
     <div class="header_text_background">
       <a href="index.html">
@@ -48,16 +45,19 @@
     type="file" 
     id="fileInp" 
     class="inputFile" 
-    accept="image/png, image/gif, image/jpeg, video/*">
+    accept="video/*">
     <label for="fileInp">+</label>
     <span class="fileText"></span>
-    <button id="uploadBtn">Upload IMAGE</button>
+    <button id="uploadBtn">Upload a Video</button>
     <div class="bar">
       <div class="progress"></div>
     </div>
     <div class="uploadPercentage">0%</div>
     <div class="imageUploaded">
-      <img  alt="" class="img">
+      <video class="img" controls>
+        <source src="movie.mp4" type="video/mp4">
+      </video>
+   
     </div>
     <h4>Title</h4> 
     <input id="enterTitle" type="text"> 
@@ -66,9 +66,27 @@
     
   </div>
  
-  
+              
 
-  <script type="module" src="index.js"></script>
+  <div class="footer">
+    <a href="https://www.facebook.com/">
+        <i  style="color: white;"class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/">
+        <i  style="color: white;"class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://www.youtube.com/">
+        <i  style="color: white;"class="fab fa-youtube"></i>
+    </a>
+
+    <a href="https://www.twitch.tv/">
+        <i style="color: white;"  class="fab fa-twitch"></i>
+    </a>
+</div>
+
+  <script type="module" src="upload.js"></script>
 </body>
 
 </html>
