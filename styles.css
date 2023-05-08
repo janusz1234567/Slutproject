@@ -77,7 +77,7 @@ a:link {
     background-image: url("pics/major.jpg");
   
     /* Set a specific height */
-    min-height: 1000px;
+    min-height: 900px;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -101,7 +101,7 @@ a:link {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     background-color: #2C3639;
     width: auto;
 }
